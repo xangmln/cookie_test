@@ -13,7 +13,7 @@ class AbstractBase(Base):
         String(36), 
         primary_key=True, 
         index=True,
-        default=lambda: str(uuid4)
+        default=lambda: str(uuid4())
     )
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
