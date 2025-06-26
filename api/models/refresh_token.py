@@ -25,7 +25,7 @@ class RefreshToken(AbstractBase):
         Boolean(), server_default="false", default=False
     )
 
-    user: Mapped["User"] = relationship("User", back_populates="refresh_tokens")
+    user = relationship("User", back_populates="refresh_tokens")
 
     def __str__(self) -> str:
         return self.token
