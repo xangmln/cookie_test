@@ -8,8 +8,16 @@ from api.models.abstract import AbstractBase
 class RefreshToken(AbstractBase):
     __tablename__ = "refresh_token"
 
-    user_id : Mapped[str] = mapped_column(ForeignKey("user.id"))
-    token : Mapped[str] = mapped_column(String(500), nullable=False, unique=True)
+    user_id : Mapped[str] = mapped_column(
+        ForeignKey("user.id"),
+        index= True
+    )
+    token : Mapped[str] = mapped_column(
+        String(500), 
+        nullable=False, 
+        unique=True,
+        index=True
+    )
     expiry_time: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False
     )
