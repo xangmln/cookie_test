@@ -10,7 +10,7 @@ class AbstractBase(Base):
     __abstract__ = True
 
     id: Mapped[str] = mapped_column(
-        String, 
+        String(36), 
         primary_key=True, 
         index=True,
         default=lambda: str(uuid4)
